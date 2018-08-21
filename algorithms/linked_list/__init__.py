@@ -1,3 +1,3 @@
-from .linked_list import SinglyLinkedList
+from .linked_list import SLL_Node
 from .contains import contains
 
