@@ -16,14 +16,14 @@ class TestSinglyLinkedList(TestCase):
         self.assertEqual(self.sll.head.next.val, 2)
         self.assertEqual(self.sll.head.next.next.val, 3)
 
-    def test_contains(self):
-        """Return boolean indicating whether linked list contains given value"""
-        self.assertTrue(self.sll.contains(3))
-        self.assertFalse(self.sll.contains(4))
+    def test_search(self):
+        """Return node with given value if it exists in linked list, otherwise returns False"""
+        target_node = self.sll.search(2)
 
-        self.sll.insert(4)
+        self.assertEqual(target_node.val, 2)
+        self.assertEqual(target_node.next.val, 3)
 
-        self.assertTrue(self.sll.contains(4))
+        self.assertFalse(self.sll.search(4))
 
 
 if __name__ == "__main__":

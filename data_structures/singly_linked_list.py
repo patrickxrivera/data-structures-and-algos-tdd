@@ -18,11 +18,11 @@ class SinglyLinkedList:
             self.tail.next = Node(val)
             self.tail = self.tail.next
 
-    def contains(self, val):
+    def search(self, val):
         curr_node = self.head
         while curr_node:
             if curr_node.val == val:
-                return True
+                return curr_node
             curr_node = curr_node.next
         return False
 
