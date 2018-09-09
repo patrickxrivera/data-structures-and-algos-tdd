@@ -6,16 +6,17 @@ class Node:
 
 class SinglyLinkedList:
     def __init__(self):
-        self._head = Node()
-        self._tail = None
+        self.head = None
+        self.tail = None
 
     def insert(self, val):
-        if self.head.val == None:
-            self.head.next = Node(val)
-            self.head = self.head.next
-            self.tail = self.head
+        node = Node(val)
+
+        if not self.head:
+            self.head = node
+            self.tail = node
         else:
-            self.tail.next = Node(val)
+            self.tail.next = node
             self.tail = self.tail.next
 
     def search(self, val):
@@ -26,18 +27,20 @@ class SinglyLinkedList:
             curr_node = curr_node.next
         return False
 
-    @property
-    def head(self):
-        return self._head
+    def remove_head(self):
+        self.head = self.head.next or Node()
 
-    @head.setter
-    def head(self, node):
-        self._head = node
+    def remove_node(self, val):
+        curr_node, prev_node = self.head, Node()
+        while curr_node:
+            if curr_node.val == val:
+                if self.is_head(prev_node):
+                    self.head = self.head.next or Node()
+                else:
+                    prev_node.next = curr_node.next
+                    return True
+            curr_node, prev_node = curr_node.next, curr_node
+        return False
 
-    @property
-    def tail(self):
-        return self._tail
-
-    @tail.setter
-    def tail(self, node):
-        self._tail = node
+    def is_head(self, node):
+        return node.val is None

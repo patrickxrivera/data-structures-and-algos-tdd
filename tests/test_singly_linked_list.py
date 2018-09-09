@@ -25,6 +25,40 @@ class TestSinglyLinkedList(TestCase):
 
         self.assertFalse(self.sll.search(4))
 
+    def test_remove_head(self):
+        self.assertEqual(self.sll.head.val, 1)
+
+        self.sll.remove_head()
+
+        self.assertEqual(self.sll.head.val, 2)
+        self.assertEqual(self.sll.head.next.val, 3)
+        self.assertEqual(self.sll.head.next.next, None)
+
+    def test_remove_head_only(self):
+        self.sll.remove_node(3)
+        self.sll.remove_node(2)
+
+        self.assertEqual(self.sll.head.val, 1)
+        self.assertEqual(self.sll.head.next, None)
+
+        self.sll.remove_head()
+
+        self.assertEqual(self.sll.head.val, None)
+
+    def test_delete_node(self):
+        self.sll.remove_node(2)
+
+        self.assertEqual(self.sll.head.val, 1)
+        self.assertEqual(self.sll.head.next.val, 3)
+
+        self.sll.remove_node(1)
+
+        self.assertEqual(self.sll.head.val, 3)
+
+        self.sll.remove_node(3)
+
+        self.assertEqual(self.sll.head.val, None)
+
 
 if __name__ == "__main__":
     unittest.main()
