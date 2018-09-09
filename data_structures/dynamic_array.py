@@ -20,7 +20,7 @@ POP_ERROR = "Can't pop an empty list!"
 DELETE_AT_ERROR = "Can't delete an item at this index."
 
 
-class DynamicList:
+class DynamicArray:
     def __init__(self, capacity=3):
         self.store = [None for _ in range(capacity)]
         self.capacity = capacity

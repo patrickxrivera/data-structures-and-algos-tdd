@@ -1,3 +1,15 @@
+# Pros vs. Arrays:
+# 1) Simple to add and delete nodes. You simply change the pointer.
+# Alternatively in arrays, you need to shift all items over to fill the space of the deleted item.
+# 2) Overflows can't occur unless memory is actually full
+
+# Cons vs. Arrays:
+# 1) Don't have fast random access. Arrays have indexes for this.
+# 2) Must allocate more space for pointer fields.
+# 3) Arrays have better memory locality since they are continguous which can improve
+# cache performance.
+
+
 class Node:
     def __init__(self, val=None):
         self.val = val

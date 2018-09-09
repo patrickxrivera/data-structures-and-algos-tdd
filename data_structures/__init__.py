@@ -1,2 +1,2 @@
-from .dynamic_list import DynamicList
+from .dynamic_array import DynamicArray
 from .singly_linked_list import SinglyLinkedList
